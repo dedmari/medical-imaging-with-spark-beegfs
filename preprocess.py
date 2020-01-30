@@ -25,6 +25,8 @@ Preprocess -- Preprocessing and creating Patches (Spark and BeeGFS as distribute
 """
 
 # System libraries
+import os
+import glob
 import shutil
 
 # Spark libraries
@@ -54,26 +56,24 @@ shutil.make_archive(dirname, 'zip', dirname + "/..", dirname)
 spark.sparkContext.addPyFile(zipname)
 
 ###### Settings Parameters #######
-
 tumor_path = disk_storage_props.RAW_TUMOR_DATA_DIR
 normal_path = disk_storage_props.RAW_NORMAL_DATA_DIR
 mask_path = disk_storage_props.RAW_TUMOR_MASK_DIR
 mask_image_resolution_level = 5
-
 ###### End Settings Parameters #######
 
 
-# Hard-coded labels to create patches from Camelyon16 dataset for now.
-# TODO: Retrieve all tumor slides (based on tumor labels) and all normal slides and pass that to preprocess functions instead of side numbers.
+# Retrieving tumor and normal slide file names (without path)
+tumor_slide_files = [os.path.basename(x) for x in glob.glob(mask_path + '*.tif')]
+normal_slide_files = [os.path.basename(x) for x in glob.glob(normal_path + '*.tif')]
+
 # Replace harcoded-label function with get_slides(type=normal/tumor), return paths.
 tumor_labels_df = get_hardcoded_labels(total_slides=5)
 normal_labels_df = get_hardcoded_labels(total_slides=160)
 
-# Process train & val slides
-# @Muneer, using hard coded (unless labels are reed properly) training indexes for creating pacthes in test mode. Dataset = Camelyon16
-
-
+# Process tumor and normal slides
 preprocess_tumor_cam(spark, tumor_labels_df.index, tumor_path, mask_path, mask_image_resolution_level)
 preprocess_normal_cam(spark, normal_labels_df.index, normal_path, mask_image_resolution_level)
 
+#Creating TFRecord for training based on patches created before
 build_tfrecord.create_tf_record_cam()

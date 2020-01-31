@@ -1,18 +1,3 @@
-# This file contains the following APIs :
-#
-#           BOUNDING BOX APIs
-#
-# get_grayscale_image_from_rgb(rgb_image):
-# get_external_contours_from_grayscale_image(grayscale_image):
-# get_bbox_from_contours(contours):
-# get_bbox_from_mask_image(mask_image):
-# get_random_samples_of_patch_starting_points(mask_image):
-#
-#           PATCH APIs
-#
-# get_and_save_patch_samples_from_mask_and_wsi_image:
-#
-# :
 
 import cv2, os
 import numpy as np

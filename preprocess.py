@@ -19,7 +19,7 @@ import utils.build_image_data as build_tfrecord
 from properties import disk_storage as disk_storage_props
 
 
-def main():
+def main(process_normal_slides=True, process_tumor_slides=False, create_tfrecord=False):
     # Create new SparkSession
     spark = (SparkSession.builder
              .appName("Camelyon 16 -- Preprocessing using Spark, BeeGFS on NetApp E-Series")
@@ -48,12 +48,15 @@ def main():
     normal_slide_files = [os.path.basename(x) for x in glob.glob(normal_path + '*.tif')]
 
     # Process tumor and normal slides
-    preprocess_tumor_cam(spark, tumor_slide_files, tumor_path, mask_path, mask_image_resolution_level)
-    preprocess_normal_cam(spark, normal_slide_files, normal_path, mask_image_resolution_level)
+    if process_tumor_slides:
+        preprocess_tumor_cam(spark, tumor_slide_files, tumor_path, mask_path, mask_image_resolution_level)
+    if process_normal_slides:
+        preprocess_normal_cam(spark, normal_slide_files, normal_path, mask_image_resolution_level)
 
     # Creating TFRecord for training based on patches created before
-    build_tfrecord.create_tf_record_cam()
+    if create_tfrecord:
+        build_tfrecord.create_tf_record_cam()
 
 
 if __name__ == '__main__':
-    main()
+    main(process_normal_slides=True, process_tumor_slides=False, create_tfrecord=False)

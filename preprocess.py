@@ -59,4 +59,4 @@ def main(process_normal_slides=True, process_tumor_slides=False, create_tfrecord
 
 
 if __name__ == '__main__':
-    main(process_normal_slides=True, process_tumor_slides=False, create_tfrecord=False)
+    main(process_normal_slides=True, process_tumor_slides=False, create_tfrecord=True)

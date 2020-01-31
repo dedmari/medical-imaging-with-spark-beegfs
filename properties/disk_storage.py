@@ -93,4 +93,4 @@ EVAL_LOGS_DIR = LOGS_DIR + "eval_dir/"
 
 # Label for Tumor images is 1
 
-labels_file = "/mnt/beegfs/spark/deep-histopath/spark-camelyon-preprocess/properties/" + "labels_file.txt"
+labels_file = "/mnt/beegfs/spark//medical-imaging-with-spark-beegfs/properties/" + "labels_file.txt"

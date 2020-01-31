@@ -1,7 +1,7 @@
 
 import cv2, os
 import numpy as np
-import deephistopath.file_utils as wsi_file_utils
+import utils.file_utils as wsi_file_utils
 import properties.disk_storage as disk_storage_props
 import properties.wsi_props as wsi_props
 

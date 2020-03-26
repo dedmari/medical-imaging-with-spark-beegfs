@@ -40,7 +40,7 @@ flags = tf.app.flags
 
 FLAGS = flags.FLAGS
 
-_FILE_PATTERN = 'train_%s_*.tfrecord' #'flowers_%s_*.tfrecord'
+_FILE_PATTERN = '%s_*' #'flowers_%s_*.tfrecord'
 
 SPLITS_TO_SIZES = {'train': training_params.PATCHES_TRAIN_SAMPLES,
                    'validation': training_params.PATCHES_VALIDATION_SAMPLES}

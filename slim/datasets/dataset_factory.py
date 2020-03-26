@@ -28,7 +28,7 @@ datasets_map = {
     'flowers': flowers,
     'imagenet': imagenet,
     'mnist': mnist,
-    'lymph_nodes': lymph_nodes,
+    'camylon16': lymph_nodes,
 }
 
 

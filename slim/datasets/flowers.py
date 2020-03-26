@@ -25,7 +25,7 @@ from __future__ import print_function
 import os
 import platform
 import tensorflow as tf
-import tensorflow.contrib.slim.python.slim.data.dataset_data_provider as dataset_data_provider
+# import tensorflow.contrib.slim.python.slim.data.dataset_data_provider as dataset_data_provider
 from tensorflow.contrib.slim.python.slim.data import dataset_data_provider
 from datasets import dataset_utils
 from PIL import Image

@@ -1,1 +1,1 @@
-# medical-imaging-with-spark-beegfs
+# Digital Pathology Imaging Analysis with Artificial Intelligence: Spark and BeeGFS on NetApp E-Series

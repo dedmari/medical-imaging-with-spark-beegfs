@@ -28,7 +28,7 @@ from slim.deployment import model_deploy
 from slim.nets import nets_factory
 from slim.preprocessing import preprocessing_factory
 
-from properties import wsi_props, training_params, disk_storage
+from properties import wsi_props, disk_storage
 
 slim = tf.contrib.slim
 
@@ -225,7 +225,6 @@ tf.app.flags.DEFINE_boolean(
 
 FLAGS = tf.app.flags.FLAGS
 
-#from properties import disk_storage
 
 flags = tf.app.flags
 
@@ -233,7 +232,6 @@ flags = tf.app.flags
 
 #State your dataset directory
 flags.DEFINE_string('dataset_dir', disk_storage.PATCHES_TF_RECORD_DIR , 'String: Your dataset directory')
-#flags.DEFINE_string('dataset_dir', "~/Desktop/tensorflow_data/" , 'String: Your dataset directory')
 
 flags.DEFINE_string('train_dir', disk_storage.TRAIN_LOGS_DIR , 'Directory where checkpoints and event logs are written to.')
 

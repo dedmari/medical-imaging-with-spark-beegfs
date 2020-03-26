@@ -24,7 +24,7 @@
        
        'python3 ./slim/train_image_classifier.py'
        
-Configuration and other parameters can be changed in files located in utils directory.
+Configuration and other parameters can be changed in files located in properties directory.
 	
 ***********************************************************************************************************
 ![alt text](https://github.com/dedmari/medical-imaging-with-spark-beegfs/blob/master/architecture_images/spark_work_flow.png)

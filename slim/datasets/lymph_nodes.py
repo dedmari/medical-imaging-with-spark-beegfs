@@ -29,7 +29,8 @@ from PIL import Image
 import numpy as np
 
 from datasets import dataset_utils
-import tensorflow.contrib.slim.python.slim.data.dataset_data_provider as dataset_data_provider
+# import tensorflow.contrib.slim.python.slim.data.dataset_data_provider as dataset_data_provider
+from tensorflow.contrib.slim.python.slim.data import dataset_data_provider
 
 from properties import training_params
 from properties import disk_storage as disk_storage_props
@@ -39,7 +40,7 @@ flags = tf.app.flags
 
 FLAGS = flags.FLAGS
 
-_FILE_PATTERN = 'lymph_nodes_%s_*.tfrecord' #'flowers_%s_*.tfrecord'
+_FILE_PATTERN = 'train_%s_*.tfrecord' #'flowers_%s_*.tfrecord'
 
 SPLITS_TO_SIZES = {'train': training_params.PATCHES_TRAIN_SAMPLES,
                    'validation': training_params.PATCHES_VALIDATION_SAMPLES}
